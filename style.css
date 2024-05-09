@@ -97,6 +97,10 @@ textarea{
     margin-bottom: 10px;
 }
 
+.stat__number--limit{
+    color: red;
+}
+
 .stat-heading{
     font-size: 14px;
     text-transform: uppercase;

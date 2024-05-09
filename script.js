@@ -19,4 +19,25 @@ textareaEl.addEventListener('input', function(){
     ////get and set number of Facebook characters left
     const facebookCharactersLeft = 2200 - numberOfCharacters;
     numberOfFacebookEl.textContent = facebookCharactersLeft;
+
+    //constraints for exceeding twitter limit
+    if (twitterCharactersLeft < 0){
+        numberOfTwitterEl.classList.add('stat__number--limit');
+        numberOfTwitterEl.textContent = 0;
+    }else{
+        numberOfTwitterEl.classList.remove('stat__number--limit');
+        numberOfTwitterEl.textContent = twitterCharactersLeft;
+    }
+
+    //constraints for exceeding facebook limit
+    if(facebookCharactersLeft < 0){
+        numberOfFacebookEl.classList.add('stat__number--limit');
+        numberOfFacebookEl.textContent = 0;
+    }else{
+        numberOfFacebookEl.classList.remove('stat__number--limit');
+        numberOfFacebookEl.textContent = facebookCharactersLeft;
+    }
 })
+
+
+//hdvhdfvj knj kndkfjb hdjfbkjndvjk ndvjn djn ingfijkb ngjkfn vjkc ndvjh bijdkfnv jdfn ifdhbvndfjkvndfvjkdfnvkjdnfkvjc jfnv;kjenfjkvnfkjn vjhfkdbhdfjfv bjhdfb hbuihiudnbiveoufnvienrviunvbrvhberivunhrinvueirbv reuhfvnvhuwnvuorbeviujrevounrevinoerid erfvnohurjdnvoiwrndvihberihbviuehr
