@@ -1,0 +1,143 @@
+*{ 
+    /* removes default styling */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*helps with setting a height and width of an element that includes the padding and border */
+}
+
+body{
+    /* even though its already linked in the HTML, it still has to be set in CSS. If the font is not available, instruct browser to select any sans-serif font available on the users computer*/
+    font-family: 'Inter', sans-serif;
+    background-color: #e1e8eb; /* adds a little blue instead of completely grey to give a cooler look so that it doesnt look so washed out  */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* aligns iems left to right */
+}
+
+textarea{
+    all: unset;
+}
+
+.background{
+    position: absolute;
+    /* takes the background out of the normal flow. If you put position after the background-image; without the ending ; you will have issues
+    The HTML elements shifted up because the background is no longer taking up space */
+    top: 0;  /* makes it stick to the top of the page unaffected by the margin-top on title */
+    
+    z-index: -1; /* makes backgrounf below everything else */
+    width: 100%;
+    height: 254px;
+    background-image: linear-gradient(to right, rgba(101, 0, 163, 0.9), rgba(24, 120, 175, 0.9)), url('https://images.unsplash.com/photo-1546453667-8a8d2d07bc20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=100');
+}
+
+.title-heading{
+    font-size: 65px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
+    margin-top: 75px;
+}
+
+.title-heading--special{
+    font-weight: 300;
+}
+
+.container{
+    width: 1050px;
+    height: 520px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    margin-top: 55px;
+    display: flex;
+    overflow: hidden; /* hides the color overflow from the stats section */
+}
+
+.textarea{
+    resize: none;
+    flex: 2;
+    font: inherit; /* force textarea to inherit the fonts of the page because it doesnt naturally do so */
+    padding: 30px 40px; /* 30px is for top and bottom while 40px is for left and right */
+    font-size: 22px;
+
+}
+
+.textarea::placeholder{
+    font-weight: 500;
+    color: #f1f6f8;
+}
+
+.stats{
+    flex: 1.3; /* must set all proportions if not leftout section would not be included in distribution calculation */
+    background-color: #f1f6f8;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stat{
+    flex: 1 150px; /* 150px sets min-width. if not you would get 3 items on 1 line */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* aligns iems top to bottom */
+    align-items: center; /* aligns iems left to right */
+}
+
+.stat:nth-child(1), .stat:nth-child(2){ /* targets element that is stat that is also a first child (2 for the second child) */
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.stat:nth-child(1), .stat:nth-child(3){ 
+    border-right: 1px solid rgba(0,0,0,0.08);
+}
+
+.stat__number{
+    color: #4d5457;
+    font-weight: 600;
+    font-size:35px ;
+    margin-bottom: 10px;
+}
+
+.stat-heading{
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 500;
+    color: #747a7c;
+}
+
+.footer{
+    width: 1050px;
+    margin: 15px 0px;
+    display: flex;
+    justify-content: space-between; /* ensures 1 value is justified left and the 2nd is justified right */
+    opacity: 0.4;
+}
+
+@media (max-width: 1150px) {
+    .container{
+        width: 85vw;
+        flex-direction: column;
+    }
+
+    .stat:nth-child(1), .stat:nth-child(2), .stat:nth-child(3){
+        border: none;
+    }
+
+    .stat__number{
+        font-size: 20px;
+    }
+
+    .footer{
+        width: initial; /* undoes width always being 1050px */
+        flex-direction: column;
+    }
+
+    .stat{
+        padding: 15px 10px;
+    }
+
+    .title-heading{
+        font-size: 7vw; 
+    }
+
+}
