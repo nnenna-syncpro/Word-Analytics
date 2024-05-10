@@ -4,8 +4,8 @@ const numberOfCharactersEl = document.querySelector('.stat__number--characters')
 const numberOfTwitterEl = document.querySelector('.stat__number--twitter');
 const numberOfFacebookEl = document.querySelector('.stat__number--facebook');
 
-
-textareaEl.addEventListener('input', function(){
+//using traditional function
+function inputHandler(){
     //validate input to prevent malicious attack
     if(textareaEl.value.includes('<script>')){
         alert('Warning! You cannot use <script>');
@@ -26,7 +26,6 @@ textareaEl.addEventListener('input', function(){
         numberOfWords = 0;
     }
     numberOfWordsEl.textContent = numberOfWords;
-
 
     //get and set number of twitter characters left
     const twitterCharactersLeft = 280 -numberOfCharacters;
@@ -53,7 +52,6 @@ textareaEl.addEventListener('input', function(){
         numberOfFacebookEl.classList.remove('stat__number--limit');
         numberOfFacebookEl.textContent = facebookCharactersLeft;
     }
-})
+}
 
-
-//hdvhdfvj knj kndkfjb hdjfbkjndvjk ndvjn djn ingfijkb ngjkfn vjkc ndvjh bijdkfnv jdfn ifdhbvndfjkvndfvjkdfnvkjdnfkvjc jfnv;kjenfjkvnfkjn vjhfkdbhdfjfv bjhdfb hbuihiudnbiveoufnvienrviunvbrvhberivunhrinvueirbv reuhfvnvhuwnvuorbeviujrevounrevinoerid erfvnohurjdnvoiwrndvihberihbviuehr
+textareaEl.addEventListener('input', inputHandler);
