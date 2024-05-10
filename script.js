@@ -12,6 +12,19 @@ textareaEl.addEventListener('input', function(){
     //display number of characters typed
     numberOfCharactersEl.textContent = numberOfCharacters;
 
+    //get number of words
+    const stringOfWords = textareaEl.value;
+    const wordsWithoutSpacing = stringOfWords.split(' '); //groups characters into words by using the space as a divider
+    let numberOfWords = wordsWithoutSpacing.length;
+    //BUG: By default .split() always returns an array of at least 1 element
+    //FIX: if the string is 0 with no characters override the length of the array
+    if (numberOfCharacters === 0){
+        numberOfWords = 0;
+    }
+    //set number of words
+    numberOfWordsEl.textContent = numberOfWords;
+
+
     //get and set number of twitter characters left
     const twitterCharactersLeft = 280 -numberOfCharacters;
     numberOfTwitterEl.textContent = twitterCharactersLeft;
