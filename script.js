@@ -6,6 +6,12 @@ const numberOfFacebookEl = document.querySelector('.stat__number--facebook');
 
 
 textareaEl.addEventListener('input', function(){
+    //validate input to prevent malicious attack
+    if(textareaEl.value.includes('<script>')){
+        alert('Warning! You cannot use <script>');
+        textareaEl.value = textareaEl.value.replace('<script>', '');
+    }
+
     //get/count the current number of characters typed 
     const numberOfCharacters = textareaEl.value.length;
 
