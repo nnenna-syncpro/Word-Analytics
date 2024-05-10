@@ -12,16 +12,13 @@ textareaEl.addEventListener('input', function(){
     //display number of characters typed
     numberOfCharactersEl.textContent = numberOfCharacters;
 
-    //get number of words
-    const stringOfWords = textareaEl.value;
-    const wordsWithoutSpacing = stringOfWords.split(' '); //groups characters into words by using the space as a divider
-    let numberOfWords = wordsWithoutSpacing.length;
-    //BUG: By default .split() always returns an array of at least 1 element
-    //FIX: if the string is 0 with no characters override the length of the array
+    //get and set number of words. Split() groups characters into words by using the space as a divider
+    let numberOfWords = textareaEl.value.split(' ').length;
     if (numberOfCharacters === 0){
+        //BUG: By default .split() always returns an array of at least 1 element
+        //FIX: if the string is 0 with no characters, override the length of the array to return 0
         numberOfWords = 0;
     }
-    //set number of words
     numberOfWordsEl.textContent = numberOfWords;
 
 
