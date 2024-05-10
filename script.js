@@ -5,7 +5,7 @@ const numberOfTwitterEl = document.querySelector('.stat__number--twitter');
 const numberOfFacebookEl = document.querySelector('.stat__number--facebook');
 
 //using traditional function
-function inputHandler(){
+const inputHandler = () => {
     //validate input to prevent malicious attack
     if(textareaEl.value.includes('<script>')){
         alert('Warning! You cannot use <script>');
@@ -52,6 +52,6 @@ function inputHandler(){
         numberOfFacebookEl.classList.remove('stat__number--limit');
         numberOfFacebookEl.textContent = facebookCharactersLeft;
     }
-}
+};
 
 textareaEl.addEventListener('input', inputHandler);
